@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --sand: #e9b872;
+  --deep: #0b1020;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #23305c 0%, #0b1020 55%, #05070f 100%);
+  font-family: "Cairo", "Segoe UI", system-ui, sans-serif;
+  color: #fff;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.font-display {
+  font-family: "Lalezar", "Cairo", system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+canvas {
+  touch-action: none;
+  display: block;
+}
+
+.tabnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- animations --- */
+@keyframes pop-in {
+  0% {
+    transform: scale(0.85) translateY(14px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.03) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+.anim-pop {
+  animation: pop-in 0.32s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-2.2deg) scale(1);
+  }
+  50% {
+    transform: rotate(2.2deg) scale(1.03);
+  }
+}
+.anim-wiggle {
+  animation: wiggle 2.4s ease-in-out infinite;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-46px) scale(0.6);
+    opacity: 0;
+  }
+}
+.anim-float {
+  animation: float-up 1.4s ease-out both;
+}
+
+@keyframes banner {
+  0% {
+    transform: scale(0.6) translateY(10px);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1.08) translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1) translateY(-18px);
+    opacity: 0;
+  }
+}
+.anim-banner {
+  animation: banner 1.6s ease-out both;
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+.anim-pulse-soft {
+  animation: pulse-soft 1.5s ease-in-out infinite;
+}
+
+.btn-press {
+  transition: transform 0.08s ease, filter 0.12s ease, box-shadow 0.12s ease;
+}
+.btn-press:active {
+  transform: translateY(3px) scale(0.975);
+  filter: brightness(1.08);
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 99px;
+}
